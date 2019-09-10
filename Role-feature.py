@@ -24,6 +24,9 @@ def role_feature():
     np.savetxt('Role_feature.csv',role_features,delimiter=',',fmt='%f')
 
 def deviations_for_users(username):
+    '''
+    Calculate the  deviations between user's daily feature and role feature.
+    '''
 
     # username='EDB0714-1'
     file_name='/feature/label_all.csv'
@@ -61,13 +64,14 @@ def count_line(files_in):
 
 
 
-
+# use the code below step by step.
 if __name__ == "__main__":
+
     # role_feature()
     user_sets=['EDB0714-1','TNM0961','HXL0968']
     # ----- step 1  每个用户单独计算 role features 
-    # for user in user_sets:
-    #     deviations_for_users(user)
+    for user in user_sets:
+        deviations_for_users(user)
     # ------------------------------------
     # ------ step 2 每个用户的各种偏差度进行拼接
     # for username in user_sets:

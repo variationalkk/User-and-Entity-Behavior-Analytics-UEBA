@@ -61,13 +61,17 @@ def data_clean(data_all,label_all):
     label_save.close()
 # 数据保存
 def generate_data(data_all,label_all,files_name):
+    '''
+    we extract every five data for our datatset,
+    the former four data are used for input data, the fivth data are used as label. 
+    '''
     data_save=open(data_all,'a+')
     label_save=open(label_all,'a+')
-    # 删除最后一行数据，因为可能会有缺漏
     batch_size=10
     num_days_for_OneSequence=5
-    counts=count_line(files_name)-1
-    real_counts=counts-num_days_for_OneSequence+1
+    # 删除最后一行数据，因为可能会有缺漏
+    counts=count_line(files_name)-1  # the number of data
+    real_counts=counts-num_days_for_OneSequence+1   
     rounds=int(real_counts/batch_size)
     print (rounds)
     for i in range(rounds):
@@ -99,6 +103,7 @@ def generate_data(data_all,label_all,files_name):
 # step two----------------------------------------------- 划分 train and test ---------------------------------------------
 def train_test_generate(data_all,label_all,train_data_save,train_label_save,test_data_save,test_label_save,rate=0.8):
     '''
+    we extract 'rate' (the defaults is 0.8) percent data for training, and the rest for testing. 
     
     '''
     
@@ -165,8 +170,9 @@ if __name__ == "__main__":
             label_test=USERNAME+'/sequence/label_test.csv'    
 
         data_clean(data_all,label_all)
-        # do real job
+        # generate the data for deep learning model
         generate_data(data_all,label_all,files_name)
+        # extract training data and test data
         train_test_generate(data_all,label_all,data_train,label_train,data_test,label_test,rate=0.7)
 
 

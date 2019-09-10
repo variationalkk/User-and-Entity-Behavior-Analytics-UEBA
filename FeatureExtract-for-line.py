@@ -8,10 +8,6 @@ from FeatureExtract import path_check
 
 
 
-class IndexError(Exception):
-    pass
-
-
 
 
 data_set={0:'logon.csv',1:'device.csv',2:'email.csv',3:'http.csv',4:'file.csv',5:'psychometric.csv'}
@@ -703,5 +699,7 @@ if __name__ == "__main__":
         file4_in=USERNAME+'/new/http2.csv'
 
         pre_step()
+        # generate the feature for daily behaviors.
         Feature_generate(file_in,file2_in,file3_in,file4_in)
+        # generate the sequence data for daily actions.
         Sequence_generate(file_in,file2_in,file3_in,file4_in)
