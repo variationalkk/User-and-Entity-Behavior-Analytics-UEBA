@@ -5,6 +5,5 @@ Detecting users anomalous behaviors from users' daily records.
 All data were extracted from CERT/R4.2  
 **Data**: data for detection  
 **Mix**: the MLP model for final judgement by using the three Mixed loss.
-....
-1111
+
 
