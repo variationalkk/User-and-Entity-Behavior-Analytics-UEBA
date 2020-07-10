@@ -2,7 +2,8 @@
 User and Entity Behavior Analytics by deep learning  
 Detecting users anomalous behaviors from users' daily records.
 ## Details
-All data were extracted from [CERT/R4.2](ftp://ftp.sei.cmu.edu/pub/cert-data)
+All data were extracted from **CERT/R4.2**  &nbsp; &nbsp;(*ftp://ftp.sei.cmu.edu/pub/cert-data*)
+
 **Data**: data for detection  
 **Mix**: the MLP model for final judgement by using the three Mixed loss.
 
